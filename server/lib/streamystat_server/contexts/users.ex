@@ -225,7 +225,6 @@ defmodule StreamystatServer.Contexts.Users do
         total_duration: sum(ps.play_duration)
       },
       order_by: [desc: sum(ps.play_duration)],
-      limit: 5
     )
     |> Repo.all()
     |> Enum.filter(fn %{genre: genre} -> genre && genre != [] end)
@@ -238,7 +237,6 @@ defmodule StreamystatServer.Contexts.Users do
       %{genre: genre, total_duration: total}
     end)
     |> Enum.sort_by(fn %{total_duration: duration} -> duration end, :desc)
-    |> Enum.take(5)
   end
 
   def get_user_longest_streak(user_id) do

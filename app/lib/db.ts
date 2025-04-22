@@ -405,7 +405,7 @@ export const getUser = async (
 
   if (page !== undefined) {
     const params = new URLSearchParams();
-    if (page !== undefined) params.append("page", page);
+    params.append("page", page);
 
     // Append query parameters to URL
     url += `?${params.toString()}`;
